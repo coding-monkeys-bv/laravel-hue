@@ -2,23 +2,20 @@
 
 namespace App\Console\Commands\Hue;
 
-use App\Models\Config;
 use App\Models\Light;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
-class ImportLights extends Command
+class SyncLights extends Command
 {
-    protected $signature = 'hue:import-lights';
-    protected $description = 'Import lights';
+    use HueTrait;
+
+    protected $signature = 'hue:sync-lights';
+    protected $description = 'Sync lights';
 
     public function handle()
     {
-        $config = Config::first();
-
-        if (is_null($config)) {
-            $this->warn('This application is not connected to your homebridge. Please run the hue:connect command first.');
-        }
+        $config = $this->getConfig();
 
         // Get lights.
         $response = Http::get(config('hue.bridge_ip').'/api/'.$config->username.'/lights');
@@ -29,10 +26,10 @@ class ImportLights extends Command
         // Get json response.
         $lights = json_decode($response->body());
 
-        foreach ($lights as $hueID => $light) {
+        foreach ($lights as $id => $light) {
             // dd($light->state->hue);
             Light::updateOrCreate([
-                'hue_id' => $hueID,
+                'id' => $id,
             ], [
                 'name' => $light->name,
                 'type' => $light->type,

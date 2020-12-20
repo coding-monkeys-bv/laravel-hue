@@ -15,7 +15,7 @@ class Light extends Model
      * @var array
      */
     protected $fillable = [
-        'hue_id',
+        'id',
         'name',
         'type',
         'productname',
@@ -29,5 +29,18 @@ class Light extends Model
     public function groups()
     {
         return $this->belongsToMany(Group::class);
+    }
+
+    // Search helper.
+    public static function search($query)
+    {
+        return empty($query)
+            ? self::query()
+            : self::where(function ($q) use ($query) {
+                $q
+                    ->where('name', 'like', '%'.$query.'%')
+                    ->orWhere('type', 'like', '%'.$query.'%')
+                    ->orWhere('productname', 'like', '%'.$query.'%');
+            });
     }
 }

@@ -15,7 +15,6 @@ class CreateLightsTable extends Migration
     {
         Schema::create('lights', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hue_id')->nullable()->index();
             $table->string('name');
             $table->string('type');
             $table->string('productname');
@@ -25,6 +24,7 @@ class CreateLightsTable extends Migration
             $table->unsignedInteger('saturation')->nullable();
             $table->boolean('reachable')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

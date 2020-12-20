@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Group;
+use App\Http\Controllers\GroupsController;
+use App\Http\Controllers\LightsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    $groups = Group::orderBy('name')->get();
-
-    return view('dashboard', compact('groups'));
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::resource('groups', GroupsController::class);
+    Route::resource('lights', LightsController::class);
+});

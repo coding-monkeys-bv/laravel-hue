@@ -52,7 +52,7 @@ class Connect extends Command
         // When application is linked, get generated username.
         if (property_exists($response[0], 'success')) {
             Config::updateOrCreate(['id' => 1], ['username' => $response[0]->success->username]);
-            $this->info('All done!');
+            $this->info('Connected!');
         }
     }
 }
