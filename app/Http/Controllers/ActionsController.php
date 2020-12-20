@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Group;
+use App\Models\Action;
 use Illuminate\Http\Request;
 
-class GroupsController extends Controller
+class ActionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        return view('groups.index');
+        return view('actions.index');
     }
 
     /**
@@ -41,10 +41,10 @@ class GroupsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Action  $action
      * @return \Illuminate\Http\Response
      */
-    public function show(Group $group)
+    public function show(Action $action)
     {
         //
     }
@@ -52,10 +52,10 @@ class GroupsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Action  $action
      * @return \Illuminate\Http\Response
      */
-    public function edit(Group $group)
+    public function edit(Action $action)
     {
         //
     }
@@ -64,10 +64,10 @@ class GroupsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Action  $action
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Group $group)
+    public function update(Request $request, Action $action)
     {
         //
     }
@@ -75,10 +75,10 @@ class GroupsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Group  $group
+     * @param  \App\Models\Action  $action
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Group $group)
+    public function destroy(Action $action)
     {
         //
     }

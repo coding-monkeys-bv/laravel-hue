@@ -14,7 +14,7 @@ class LightsController extends Controller
      */
     public function index()
     {
-        return view('lights');
+        return view('lights.index');
     }
 
     /**

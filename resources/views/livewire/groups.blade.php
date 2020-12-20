@@ -45,7 +45,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900" colspan="4">{{ __('No groups added yet.') }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900" colspan="4">{{ __('No groups found...') }}</td>
                             </tr>
                             @endforelse
                         </tbody>

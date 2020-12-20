@@ -47,7 +47,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900" colspan="4">{{ __('No lights added yet.') }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900" colspan="4">{{ __('No lights found...') }}</td>
                             </tr>
                             @endforelse
                         </tbody>

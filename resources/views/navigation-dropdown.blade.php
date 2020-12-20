@@ -12,12 +12,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('groups.index') }}" :active="request()->routeIs('groups.index')">
-                        {{ __('Groups') }}
-                    </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('lights.index') }}" :active="request()->routeIs('lights.index')">
-                        {{ __('Lights') }}
-                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('groups.index') }}" :active="request()->routeIs('groups.index')">{{ __('Groups') }}</x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('lights.index') }}" :active="request()->routeIs('lights.index')">{{ __('Lights') }}</x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('actions.index') }}" :active="request()->routeIs('actions.index')">{{ __('Actions') }}</x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('webhooks.index') }}" :active="request()->routeIs('webhooks.index')">{{ __('Webhooks') }}</x-jet-nav-link>
                 </div>
             </div>
 
